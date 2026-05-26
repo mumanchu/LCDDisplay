@@ -1,6 +1,8 @@
 # LCDDisplay
-Library for LCD Displays using I2C, PCF8574, MCP23008, etc.
-Also works for SPI expanders.
+Library for LCD Displays using I2C, PCF8574, MCP23008, etc. Also works for SPI and other I2C expanders by overriding two small methods..
+
+Original article: \
+https://muman.ch/muman/index.htm?muman-lcd-character-display.htm
 
 ## **PRELIMINARY**
 _Content is being updated..._
@@ -8,6 +10,8 @@ _Content is being updated..._
 ## Blurb
 Simple LCD text-mode displays have been around since the 1970s. The original displays needed lots of control lines (8 data bits, enable, read/write, chip select, etc).
 These days, an I2C or SPI interface is usually used, needing just two or four control lines (SDA and SCL for I2C, or MOSI, MISO, SCK and CS for SPI).
+
+3.3V and 5V ...
 
 TODO
 
