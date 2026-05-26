@@ -48,6 +48,11 @@ public:
 };
 ```
 
+## I2C Clock Speeds
+
+TODO
+
+
 ## Using inheritance to adapt the code for other I2C or SPI expanders
 
 MCP23008 8-bit I2C Expander, or MCP23S08 SPI expander
