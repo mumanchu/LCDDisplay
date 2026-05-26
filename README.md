@@ -6,7 +6,7 @@ _Content is being updated..._
 
 ## Blurb
 Simple LCD text-mode displays have been around since the 1970s. The original displays needed lots of control lines (8 data bits, enable, read/write, chip select, etc).
-These days an I2C or SPI interface is usually used, which needs just two or four control lines (SDA and SCL for I2C, or MOSI, MISO, SCK and CS for SPI).
+These days, an I2C or SPI interface is usually used, needing just two or four control lines (SDA and SCL for I2C, or MOSI, MISO, SCK and CS for SPI).
 
 TODO
 
@@ -40,7 +40,9 @@ public:
 };
 ```
 
-## Using inheritance to adapt code for other I2C or SPI expanders
+## Using inheritance to adapt the code for other I2C or SPI expanders
+
+MCP23008 8-bit SPI Expander
 
 TODO
 
@@ -54,7 +56,7 @@ TODO
 
 ## Joke of the Week
 
-Matt's Tip \#32: Never buy Placebos on Ebay. They are almost always fakes.
+Matt's Tip \#32: _Never buy Placebos on Ebay. They are almost always fakes._
 
 
 
