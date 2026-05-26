@@ -1,5 +1,6 @@
 # LCDDisplay
-Library for I2C LCDs using PCF8574, MCP23008 etc.
+Library for LCD Displays using I2C, PCF8574, MCP23008, etc.
+Also works for SPI expanders.
 
 ## **PRELIMINARY**
 _Content is being updated..._
