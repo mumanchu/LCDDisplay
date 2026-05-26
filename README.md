@@ -1,8 +1,11 @@
 # LCDDisplay
-Library for LCD Displays using I2C, PCF8574, MCP23008, etc. Also works for SPI and other I2C expanders by overriding two small methods..
+Library for LCD Displays using I2C, PCF8574, MCP23008, etc. Also works for SPI and other I2C I/O Expanders by overriding two small methods..
 
 Original article: \
 https://muman.ch/muman/index.htm?muman-lcd-character-display.htm
+
+Notes about I2C and SPI I/O Expanders \
+https://muman.ch/muman/index.htm?muman-mcp23017.htm
 
 ## **PRELIMINARY**
 _Content is being updated..._
@@ -47,7 +50,7 @@ public:
 
 ## Using inheritance to adapt the code for other I2C or SPI expanders
 
-MCP23008 8-bit SPI Expander
+MCP23008 8-bit I2C Expander, or MCP23S08 SPI expander
 
 TODO
 
