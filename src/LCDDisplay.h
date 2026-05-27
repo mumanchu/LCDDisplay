@@ -4,6 +4,7 @@
 // Library for LCD Displays using I2C, PCF8574, MCP23008, etc. 
 // Copyright (C) 2026.05.27, mumanchu + muman.ch
 // All rights reversed
+// 
 // See github for details
 // https://github/mumanchu/LCDDisplay
 // https://muman.ch/muman/index.htm?muman-lcd-character-display.htm
@@ -14,7 +15,6 @@ class LCDDisplay
 {
 protected:
 	TwoWire* wire;
-	unsigned long tlast = 0;	// for 'Enable cycle time' delay
 
 	// Control bits, usually bits 0..3, see I2C adapter circuit diagram
 	// https://muman.ch/muman/lcd-i2c-adapter-module-5.png
@@ -79,7 +79,6 @@ protected:
 	bool writeByte(CTRL ctrl, int data);
 	bool writeNibble(CTRL ctrl, int data);
 	bool readByte(CTRL ctrl, byte* b);
-	void enCycleTimeDelay();
 
 	// override these in a derived class if using a different I2C I/O expander
 	// as in MCP23008Lcd.h
@@ -380,9 +379,6 @@ inline bool LCDDisplay::writeByte(CTRL ctrl, int data)
 // twice, first for the  MS nibble and again for the LS nibble.
 bool LCDDisplay::writeNibble(CTRL ctrl, int data)
 {
-	// EN signal delay
-	enCycleTimeDelay();
-
 	// get data in bits 7..4
 	data = (data << 4) & 0xf0;
 
@@ -413,44 +409,12 @@ bool LCDDisplay::readByte(CTRL ctrl, byte* b)
 	return true;
 }
 
-//TODO for the LTN221 it's 1000 NANOseconds, not microseconds!!!
-
-// EN signal cycle time delay, 'Tc' or 'Tcyc' etc.
-// in old LCDs this can be as long as 1000uS, in new LCDs it can be as low as 1uS
-// the delay is used only if necessary
-// note: other delays are not needed, I2C communications provides these
-void LCDDisplay::enCycleTimeDelay()
-{
-	//TODO adjust this according to your LCD display
-	const unsigned long enableCycleTime = 1;	// microseconds
-
-	unsigned long t = micros();
-	unsigned long elapsedMicros = t - tlast;
-	if (elapsedMicros < enableCycleTime)
-		delayMicroseconds(enableCycleTime - elapsedMicros);
-	tlast = t;
-}
-
-/*use this if you don't have delayMicroseconds()
-// Delay the given number of microseconds
-void LcdDisplayI2C::delayMicroseconds(unsigned long microseconds)
-{
-	unsigned long start = micros();
-	while (micros() - start < microseconds) {
-		yield();
-	}
-}
-*/
-
 
 // Override these in a derived class if using a different I2C I/O expander
 // as in LcdLTN221.h
 
 bool LCDDisplay::readNibble(byte* nibble, byte ctrl)
 {
-	// EN signal delay
-	enCycleTimeDelay();
-
 	// merge in the backlight and ctrl values
 	// RW   = read
 	// ctrl = NONE or RS
