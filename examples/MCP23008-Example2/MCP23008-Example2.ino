@@ -40,8 +40,8 @@ void setup()
 	Wire.setClock(400000);
 	Wire.setTimeout(100);
 
-	// initialize a 2 lines x 16 character LCD on I2C address 0x27
-	lcd.begin(&Wire, 0x27, 2, 16);
+	// initialize a 2 lines x 16 character LCD on I2C address 0x20
+	lcd.begin(&Wire, 0x20, 2, 16);
 
 	// test the LCD's RAM to ensure everything is working
 	if (!lcd.testDDRAM()) {
