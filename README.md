@@ -129,7 +129,7 @@ All the code is in the example `MCP23008-Example2`.
 
 If you really must use SPI, you can do a similar thing for the SPI MCP23S08 by using the SPI version of `MCP23Expander8bit.h`. But I2C is fine, stick with that.
 
-Here's the MCP23008 adapter circuit for an old LTN221 LCD. For more common LCDs, J1 is a 14 x 1 pin connector instead of a 7 x 2 connector. This version is for a **5V** microcontroller. To use it with a 3.3V device, add an additional 3.3V pin to J2 and connect the R1 and R2 pullups to 3.3V instead of 5V.
+Here's the MCP23008 adapter circuit for an old LTN221 LCD. For more common LCDs, J1 is a 14 x 1 pin connector instead of a 7 x 2 connector. This version is for a **5V** microcontroller. To use it with a 3.3V device, add an additional 3.3V pin to J2 and connect the R1, R2 and R3 pullups to 3.3V instead of 5V.
 
 ![MCP23008 Schematic](https://muman.ch/pub/mcp23008-adapter.png)
 
