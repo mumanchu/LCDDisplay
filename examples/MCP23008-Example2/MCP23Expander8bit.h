@@ -122,7 +122,7 @@ public:
 	#ifdef DEBUG
 	bool verify(byte reg, byte value);
 	void dumpRegisters();
-	void dumpRegister(byte reg, char* name, byte value);
+	void dumpRegister(byte reg, const char* name, byte value);
 	#endif
 };
 
@@ -299,7 +299,7 @@ bool MCP23Expander8bitBase::verify(byte reg, byte value)
 }
 
 // Display all the register values
-void MCP23Expander8bitBase::dumpRegister(byte reg, char* name, byte value)
+void MCP23Expander8bitBase::dumpRegister(byte reg, const char* name, byte value)
 {
 	char buf[32];
 	sprintf(buf, "%02X %-7s %02X", reg, name, value);
