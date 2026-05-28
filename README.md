@@ -1,6 +1,6 @@
 # LCDDisplay
 
-Library for LCD Displays using I2C, with a PCF8574 or MCP23008 GPIO expander. If can be easily modified for SPI and other I2C I/O Expanders by overriding two small methods as shown in the inheritance example below.
+Library for LCD Displays using I2C, with a PCF8574 or MCP23008 GPIO expander. It can be easily modified for SPI and other I2C I/O Expanders by overriding two small methods as shown in the inheritance example below.
 
 
 ## Blurb
