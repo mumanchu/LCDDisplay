@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-// LCDDisplay library example sketch for PCF8574 GPIO Expander 
+// LCDDisplay library example sketch for MCP23008 I2C GPIO Expander
 // 2026.05.28
 // https://github.com/mumanchu/LCDDisplay
 // Original article
@@ -20,8 +20,9 @@
 #define ASSERT(b)
 #endif
 
-#include "LCDDisplay.h"
-LCDDisplay lcd;
+// Derived class with handling for MCP23008
+#include "MCP23008Lcd.h"
+MCP23008Lcd lcd;
 
 
 void setup()
@@ -78,4 +79,5 @@ void loop()
 		lcd.putString(buf1, 0, 0);
 		lcd.putString(buf2, 1, 0);
 	}
- }
+}
+

@@ -1,7 +1,7 @@
 #pragma once
 
 /////////////////////////////////////////////////////////////////////
-// Library for LCD Displays using I2C, PCF8574, MCP23008, etc. 
+// Library for LCD Displays using I2C, for PCF8574 GPIO Expander 
 // Copyright (C) 2026.05.27, mumanchu + muman.ch
 // All rights reversed
 // 

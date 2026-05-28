@@ -1,11 +1,7 @@
 # LCDDisplay
 
-Library for LCD Displays using I2C, PCF8574, MCP23008, etc. Also works for SPI and other I2C I/O Expanders by overriding two small methods.
+Library for LCD Displays using I2C, with a PCF8574 or MCP23008 GPIO expander. If can be easily modified for SPI and other I2C I/O Expanders by overriding two small methods as shown in the example below.
 
-
-## **PRELIMINARY**
-
-_Content is being updated..._
 
 ## Blurb
 
@@ -47,7 +43,7 @@ Most microcontroller boards, Arduinos etc, already have on-board pullup resistor
 
 Details of each method can be found in the source code's comments, or just by reading the very simple C++ code.
 
-The library does not do any text formatting (it is an LCD driver library, not a text formatting library). Instead, use `sprintf()` to format the text before it is displayed. And if you need floating point, look at the minimalist floating point conversion routines in the blog: https://muman.ch/muman/muman-light-sensors.htm#muman-floating-point
+The library does not do any text formatting (it is an LCD driver library, not a text formatting library). Instead, use `sprintf()` to format the text before it is displayed. And if you need floating point, look at the minimalist floating point conversion routines here: https://muman.ch/muman/muman-light-sensors.htm#muman-floating-point
 
 ```cpp
 class LCDDisplay
@@ -127,11 +123,15 @@ If the jumper is in (closed), it is grounded and the address bit is 0. If the ju
 
 If you want to use an MCP23008 8-bit I2C Expander, then you can "inherit" most of the `LCDDisplay` class code. 
 
-Derive a new class using `LCDDisplay` as the base class. Write a new `begin()` method which initializes the MCP23008 and calls `LCDDisplay.begin()`. Override the two low-level communications methods, `readNibble()` and `write()` for the MCP23008.
+Derive a new class using `LCDDisplay` as the base class. Write a new `begin()` method which initializes the MCP23008 and calls `LCDDisplay.begin()`. Override the two low-level communications methods, `readNibble()` and `write()` for the MCP23008. `MCP23008Lcd.h` is an example class which does this. It uses `MCP23Expander8bit.h` from mumanchu's `MCP23Expander` library.
 
-`MCP23008Lcd.h` is an example class which does this. It uses `MCP23Expander8bit.h` from mumanchu's `MCP23Expander` library (soon to be released, after my recovery), https://github.com/mumanchu/MCP23Expander.
+All the code is in the example `MCP23008-Example2`.
 
 If you really must use SPI, you can do a similar thing for the SPI MCP23S08 by using the SPI version of `MCP23Expander8bit.h`. But I2C is fine, stick with that.
+
+Here's the MCP23008 adapter circuit for an old LTN221 LCD. For more common LCDs, J1 is a 14 x 1 pin connector instead of a 7 x 2 connector. This version is for a **5V** microcontroller. To use it with a 3.3V device, add an additional 3.3V pin to J2 and connect the R1 and R2 pullups to 3.3V instead of 5V.
+
+![MCP23008 Schematic](https://muman.ch/pub/mcp23008-adapter.png)
 
 
 ## Missing Links
@@ -156,7 +156,7 @@ https://muman.ch/pub/LTN221.pdf
 
 | Date  | Revision | Description |
 |:---------- |:---------|:----------- |
-| 2026.xx.xx | 0.0.0	| Preliminary |
+| 2026.05.28 | 0.0.0	| Preliminary |
 
 <br/>
 
