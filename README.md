@@ -161,5 +161,5 @@ https://muman.ch/pub/LTN221.pdf
 
 ## Joke of the Week
 
-Matt's Tip \#32: _Never buy Placebos on Internet. They are almost always fake!_
+Matt's Tip \#32: _Never buy Placebos on Internet. They are almost always fakes!_
 
